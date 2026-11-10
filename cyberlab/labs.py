@@ -5,7 +5,6 @@ import json
 import math
 import secrets
 import sqlite3
-import string
 import time
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -164,6 +163,7 @@ _MFA_CODES = {}
 
 
 def mfa_demo_start():
+    _MFA_CODES.clear()
     token = secrets.token_hex(8)
     code = f"{secrets.randbelow(1_000_000):06d}"
     _MFA_CODES[token] = code
