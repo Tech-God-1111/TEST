@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <title>Cybersecurity Learning Lab</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">CL</span><span>Cybersecurity <b>Learning Lab</b></span></a>
+    <span class="local-pill"><i></i> LOCAL TRAINING ENVIRONMENT</span>
+  </header>
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">DEFENSIVE SECURITY • VERSION 1.0.0</div>
+      <h1>Learn how systems fail.<br><span>Learn how to protect them.</span></h1>
+      <p>Five hands-on learning areas using fictional targets, synthetic data and local demonstrations. Nothing here scans or contacts external systems.</p>
+      <div class="hero-note">Training boundary: do not enter real passwords, personal information, or third-party URLs you do not have permission to assess.</div>
+    </section>
+
+    <nav class="module-nav" aria-label="Lab modules">
+      <button class="nav-item active" data-tab="phishing">01 <span>Phishing awareness</span></button>
+      <button class="nav-item" data-tab="network">02 <span>Network lab</span></button>
+      <button class="nav-item" data-tab="web">03 <span>Web security</span></button>
+      <button class="nav-item" data-tab="password">04 <span>Password security</span></button>
+      <button class="nav-item" data-tab="monitor">05 <span>Monitoring</span></button>
+    </nav>
+
+    <section class="panel active" id="panel-phishing">
+      <div class="section-heading"><div><div class="eyebrow">MODULE 01</div><h2>Phishing awareness</h2></div><span class="tag">No credential collection</span></div>
+      <div class="two-col">
+        <article class="card">
+          <h3>Suspicious URL inspector</h3>
+          <p>Inspect the text of a URL. The lab does not open it or make a network request.</p>
+          <label for="url-input">Example URL</label>
+          <input id="url-input" type="text" value="http://account-update.example.test/login" maxlength="2048">
+          <button class="primary" id="analyze-url">Analyze URL</button>
+          <div class="result" id="url-result" aria-live="polite">Analysis will appear here.</div>
+        </article>
+        <article class="card">
+          <h3>Fictional visual-impersonation example</h3>
+          <p>Study how copied visual styling can create false familiarity. This page has no login form.</p>
+          <div class="mock-site">
+            <div class="mock-brand"><span>✦</span> Northstar Learning</div>
+            <div class="mock-banner">FICTIONAL TRAINING PAGE</div>
+            <h3>Welcome back</h3>
+            <p>A familiar design is not proof of a genuine website.</p>
+            <div class="mock-disabled">Credential fields intentionally omitted</div>
+            <small>Training domain: northstar.example.test</small>
+          </div>
+          <ul class="tips"><li>Inspect the actual hostname.</li><li>Use a saved bookmark for important services.</li><li>Be cautious with unexpected urgency.</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-network">
+      <div class="section-heading"><div><div class="eyebrow">MODULE 02</div><h2>Network security lab</h2></div><span class="tag">Static fictional inventory</span></div>
+      <div class="card"><div class="card-head"><div><h3>Sample network inventory</h3><p>Documentation-only IP addresses. No port scanning is performed.</p></div><button class="secondary" id="load-network">Refresh sample</button></div><div id="network-result" class="data-grid"></div></div>
+      <div class="card"><h3>Sample traffic analysis</h3><p>Read a bundled synthetic traffic dataset and compare protocol counts.</p><div id="traffic-result" class="result">Load the sample inventory to view traffic.</div></div>
+      <div class="card"><h3>Firewall rule concept</h3><div class="rule"><span class="allow">ALLOW</span><code>TRAINING-WEB → TCP/443</code><span>Approved demo service</span></div><div class="rule"><span class="deny">DENY</span><code>UNKNOWN → ANY</code><span>Default-deny example</span></div><p class="muted">These are visual examples only; no operating-system firewall rules are changed.</p></div>
+    </section>
+
+    <section class="panel" id="panel-web">
+      <div class="section-heading"><div><div class="eyebrow">MODULE 03</div><h2>Web application security</h2></div><span class="tag">In-memory demo database</span></div>
+      <div class="two-col">
+        <article class="card">
+          <h3>SQL parameterization</h3><p>Search a tiny in-memory training database. Input is bound as data using a parameterized query.</p>
+          <label for="db-query">Search resources</label><input id="db-query" maxlength="80" placeholder="Try: session">
+          <button class="primary" id="db-search">Run safe search</button><div class="result" id="db-result" aria-live="polite"></div>
+        </article>
+        <article class="card">
+          <h3>Session lifecycle</h3><p>Observe a simple demo session flag being created and revoked. This is not a production authentication system.</p>
+          <div class="button-row"><button class="primary" id="session-create">Create demo session</button><button class="secondary" id="session-revoke">Revoke session</button></div>
+          <div class="result" id="session-result">No action taken.</div>
+        </article>
+      </div>
+      <div class="card"><h3>Secure coding checklist</h3><ul class="tips"><li>Use parameterized database queries.</li><li>Validate input on the server, not only in the browser.</li><li>Use secure, HttpOnly and SameSite cookie settings in real applications.</li><li>Protect state-changing requests against CSRF.</li><li>Store passwords with a purpose-built password hashing scheme.</li></ul></div>
+    </section>
+
+    <section class="panel" id="panel-password">
+      <div class="section-heading"><div><div class="eyebrow">MODULE 04</div><h2>Password security</h2></div><span class="tag">Samples only — never use a real password</span></div>
+      <div class="two-col">
+        <article class="card">
+          <h3>Password strength estimator</h3><label for="password-input">Synthetic sample password</label><input id="password-input" type="password" maxlength="256" autocomplete="off" placeholder="Use a made-up example">
+          <button class="primary" id="password-analyze">Analyze sample</button><div class="result" id="password-result"></div>
+          <p class="muted">The value is processed locally by this app and is not written to a file or log. The estimator is educational, not a guarantee.</p>
+        </article>
+        <article class="card">
+          <h3>Salted hash demonstration</h3><p>Generate a PBKDF2 verifier for the synthetic sample, then verify it. Nothing is persisted.</p>
+          <button class="secondary" id="make-hash">Generate salted hash</button><div class="result" id="hash-result">No hash generated.</div>
+          <label for="verify-input">Verification sample</label><input id="verify-input" type="password" autocomplete="off" placeholder="Enter the same sample">
+          <button class="primary" id="verify-hash" disabled>Verify sample</button><div id="verify-result" class="result"></div>
+        </article>
+      </div>
+      <div class="card"><h3>KDF performance benchmark</h3><p>One bounded PBKDF2 benchmark using a fixed synthetic input.</p><div class="button-row"><button class="secondary" data-benchmark="100000">100k iterations</button><button class="secondary" data-benchmark="200000">200k iterations</button><button class="secondary" data-benchmark="300000">300k iterations</button></div><div id="benchmark-result" class="result"></div></div>
+      <div class="card"><h3>Multi-factor authentication simulation</h3><p>Generate a one-time code in this training page. It is displayed locally and is not sent to a phone or email.</p><button class="secondary" id="mfa-start">Start MFA demo</button><div id="mfa-code" class="result"></div><label for="mfa-input">Six-digit demo code</label><input id="mfa-input" inputmode="numeric" maxlength="6" placeholder="000000"><button class="primary" id="mfa-verify">Verify demo code</button><div id="mfa-result" class="result"></div></div>
+    </section>
+
+    <section class="panel" id="panel-monitor">
+      <div class="section-heading"><div><div class="eyebrow">MODULE 05</div><h2>Security monitoring</h2></div><span class="tag">Synthetic event stream</span></div>
+      <div class="card"><div class="card-head"><div><h3>Security event timeline</h3><p>Events are generated by this lab only.</p></div><div class="button-row"><button class="primary" id="simulate-failure">Simulate failed login</button><button class="secondary" id="refresh-events">Refresh</button></div></div><div id="monitor-result" class="event-list"></div></div>
+      <div class="card"><h3>Detection rule</h3><p>Five or more synthetic failed sign-in events from the same sample source trigger a training alert. Real detection systems need tuning, context and investigation.</p></div>
+    </section>
+
+    <footer><span>CYBERSECURITY LEARNING LAB</span><span>Local-only • Synthetic targets • Defensive education</span></footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "project": "Cybersecurity Learning Lab",
+  "version": "1.0.0",
+  "host": "127.0.0.1",
+  "port": 5055,
+  "security": {
+    "max_request_bytes": 4096,
+    "password_benchmark_min_iterations": 100000,
+    "password_benchmark_max_iterations": 300000
+  }
+}

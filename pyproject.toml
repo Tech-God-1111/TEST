@@ -1,0 +1,18 @@
+[project]
+name = "cybersecurity-learning-lab"
+version = "1.0.0"
+description = "Local-only defensive cybersecurity education lab"
+requires-python = ">=3.10"
+dependencies = ["Flask==3.1.1"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]

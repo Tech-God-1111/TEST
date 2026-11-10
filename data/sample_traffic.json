@@ -1,0 +1,7 @@
+[
+  {"time":"09:00:01","source":"192.0.2.25","destination":"192.0.2.10","protocol":"HTTPS"},
+  {"time":"09:00:03","source":"192.0.2.25","destination":"192.0.2.1","protocol":"DNS"},
+  {"time":"09:00:05","source":"192.0.2.10","destination":"192.0.2.25","protocol":"HTTPS"},
+  {"time":"09:00:08","source":"192.0.2.25","destination":"192.0.2.10","protocol":"HTTPS"},
+  {"time":"09:00:12","source":"192.0.2.10","destination":"192.0.2.1","protocol":"DNS"}
+]
